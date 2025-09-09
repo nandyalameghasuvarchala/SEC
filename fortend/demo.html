@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Megha Suvarchala | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --background: #12192a;
+      --section-bg: #1b233a;
+      --primary: #22d3ee;
+      --secondary: #b594ff;
+      --accent: #f8b400;
+      --text: #f5f6fa;
+      --shadow: 0 8px 32px rgba(34, 211, 238, 0.13);
+      --card-radius: 18px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: var(--background);
+      color: var(--text);
+      min-height: 100vh;
+    }
+    header {
+      background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
+      color: var(--text);
+      padding: 2.5rem 0 1.5rem 0;
+      text-align: center;
+      box-shadow: var(--shadow);
+    }
+    header h1 {
+      font-size: 2.7rem;
+      font-weight: 700;
+      letter-spacing: 3px;
+      margin-bottom: 0.4rem;
+      text-transform: uppercase;
+    }
+    header p {
+      font-size: 1.27rem;
+      font-weight: 500;
+      letter-spacing: 1px;
+      opacity: 0.93;
+    }
+    nav {
+      margin-top: 1.3rem;
+    }
+    nav a {
+      color: var(--text);
+      font-weight: 700;
+      text-decoration: none;
+      margin: 0 1.2rem;
+      font-size: 1.05rem;
+      border-bottom: 2px solid transparent;
+      transition: color 0.2s, border-bottom 0.2s;
+      padding-bottom: 2px;
+    }
+    nav a:hover {
+      color: var(--accent);
+      border-bottom: 2px solid var(--accent);
+    }
+    .container { max-width: 1200px; margin: 2.5rem auto; padding: 0 1.5rem; }
+    .section-title {
+      font-size: 2.2rem;
+      margin-bottom: 1.8rem;
+      color: var(--primary);
+      text-align: center;
+      letter-spacing: 1px;
+      font-weight: 700;
+    }
+    .about {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--section-bg);
+      box-shadow: var(--shadow);
+      border-radius: var(--card-radius);
+      padding: 2rem;
+      margin-bottom: 3rem;
+      gap: 3rem;
+    }
+    .about-img {
+      flex: 0 0 180px;
+      max-width: 190px;
+      border-radius: 50%;
+      overflow: hidden;
+      box-shadow: 0 2px 20px var(--primary);
+      border: 5px solid var(--accent);
+    }
+    .about-img img { width: 100%; display: block; }
+    .about-text {
+      flex: 1;
+    }
+    .about-text h3 {
+      font-size: 1.22rem;
+      color: var(--secondary);
+      margin-bottom: 0.68rem;
+    }
+    .about-text p {
+      font-size: 1.07rem;
+      color: var(--text);
+      line-height: 1.7;
+      opacity: 0.92;
+    }
+    .skills {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      gap: 1.1rem;
+      margin-bottom: 3rem;
+    }
+    .skill-card {
+      background: linear-gradient(135deg, var(--primary) 60%, var(--accent) 100%);
+      color: #1b233a;
+      box-shadow: var(--shadow);
+      border-radius: 13px;
+      padding: 1rem 0.7rem;
+      font-weight: 700;
+      text-align: center;
+      letter-spacing: 1px;
+      cursor: pointer;
+      font-size: 1.05rem;
+      transition: transform 0.17s, background 0.22s, color 0.15s;
+    }
+    .skill-card:hover {
+      transform: scale(1.09) rotate(-3deg);
+      background: linear-gradient(135deg, var(--accent) 80%, var(--secondary) 100%);
+      color: var(--text);
+    }
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+    .project-card {
+      background: var(--section-bg);
+      box-shadow: var(--shadow);
+      border-radius: 15px;
+      overflow: hidden;
+      transition: transform 0.18s, box-shadow 0.2s;
+      display: flex;
+      flex-direction: column;
+      border: 1.5px solid var(--primary);
+    }
+    .project-card:hover {
+      transform: translateY(-7px) scale(1.04);
+      box-shadow: 0 12px 35px var(--secondary);
+      border-color: var(--accent);
+    }
+    .project-img {
+      width: 100%;
+      height: 172px;
+      object-fit: cover;
+      background: #2a3651;
+      display: block;
+    }
+    .project-content {
+      padding: 1.2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      flex: 1;
+    }
+    .project-title {
+      font-size: 1.22rem;
+      color: var(--primary);
+      margin-bottom: 0.55rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+    .project-desc {
+      font-size: 1.05rem;
+      margin-bottom: 1.1rem;
+      color: #c7ccec;
+    }
+    .project-link {
+      align-self: flex-end;
+      text-decoration: none;
+      color: var(--accent);
+      font-weight: 700;
+      border-bottom: 2px solid transparent;
+      letter-spacing: 0.5px;
+      transition: color 0.18s, border-bottom 0.18s;
+    }
+    .project-link:hover {
+      color: var(--primary);
+      border-bottom: 2px solid var(--primary);
+    }
+    .Address-section {
+      background: var(--section-bg);
+      box-shadow: var(--shadow);
+      border-radius: var(--card-radius);
+      padding: 2.2rem 1rem;
+      max-width: 530px;
+      margin: 0 auto 2.5rem auto;
+      text-align: center;
+    }
+    .Address-section input, .Address-section textarea {
+      width: 92%;
+      padding: 0.73rem;
+      margin-bottom: 1.1rem;
+      border-radius: 5px;
+      border: 1.5px solid #b0b6c8;
+      background: #212c48;
+      color: var(--primary);
+      font-size: 1.03rem;
+      transition: border 0.16s;
+    }
+    .Adress-section input:focus, .Address-section textarea:focus {
+      outline: none;
+      border: 2px solid var(--accent);
+    }
+    .Address-section button {
+      background: var(--primary);
+      color: var(--background);
+      padding: 0.7rem 2.2rem;
+      border: none;
+      border-radius: 5px;
+      font-weight: 700;
+      font-size: 1.12rem;
+      cursor: pointer;
+      transition: background 0.22s, color 0.12s;
+      box-shadow: 0 3px 12px var(--primary);
+      letter-spacing: 0.7px;
+    }
+    .Address-section button:hover {
+      background: var(--accent);
+      color: var(--section-bg);
+    }
+    footer {
+      background: linear-gradient(90deg, var(--secondary) 0%, var(--primary) 100%);
+      color: #fff;
+      text-align: center;
+      padding: 1.7rem 0 1.1rem 0;
+      font-size: 1.04rem;
+      letter-spacing: 1px;
+      margin-top: 2.7rem;
+      border-radius: 0 0 15px 15px;
+      opacity: 0.96;
+    }
+    @media (max-width: 800px) {
+      .about {
+        flex-direction: column;
+        text-align: center;
+        gap: 2rem;
+        padding: 1.4rem;
+      }
+      .container {
+        padding: 0 0.6rem;
+      }
+      .projects {
+        grid-template-columns: 1fr;
+      }
+      .skills {
+        grid-template-columns: 1fr;
+        gap: 0.8rem;
+      }
+    }
+    @media (max-width: 500px) {
+      header h1 { font-size: 1.7rem; }
+      .section-title { font-size: 1.3rem; }
+      .about-img { max-width: 120px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Megha Suvarchala</h1>
+    <p>Full Stack Developer & Web Developer</p>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#Address">Address</a>
+    </nav>
+  </header>
+  <div class="container">
+    <section id="about" class="about">
+      <div class="about-img">
+        <img src=""C:\Users\nsubb\OneDrive\Desktop\BUJJI\IMG-20240823-WA0050.jpg"" alt="Megha Suvarchala">
+      </div>
+      <div class="about-text">
+        <h2 class="section-title">About Me</h2>
+        <h3>Hi, I’m Megha!</h3>
+        <p>
+           I am the student of SRIT College & Now i am studying btech 3rd year in CSM(AI&ML).My goal is to turn ideas into impactful products with clean code and bold creativity!
+        </p>
+      </div>
+    </section>
+    <section id="skills">
+      <h2 class="section-title">Skills</h2>
+      <div class="skills">
+        <div class="skill-card">HTML5</div>
+        <div class="skill-card">CSS3</div>
+        <div class="skill-card">JavaScript</div>
+        <div class="skill-card">Node.js</div>
+        <div class="skill-card">MongoDB</div>
+        <div class="skill-card">Git & GitHub</div>
+      </div>
+    </section>
+    <section id="projects">
+      <h2 class="section-title">Projects</h2>
+      <div class="projects">
+        <div class="project-card">
+          <img class="project-img" src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.projectpro.io%2Farticle%2Ftop-10-machine-learning-projects-for-beginners-in-2021%2F397&psig=AOvVaw1F4c1x5puy8EN8QNra5QE9&ust=1757432398684000&source=images&cd=vfe&opi=89978449&ved=0CBUQjRxqFwoTCODg6onAyY8DFQAAAAAdAAAAABAE.jpg" alt="Project 1">
+          <div class="project-content">
+            <div>
+              <div class="project-title">Machine learning</div>
+              <div class="project-desc">A Machine Learning is branch of Artificial intelligence.</div>
+            </div>
+            <a class="project-link" href="#" target="_blank">View Project</a>
+          </div>
+        </div>
+        <div class="project-card">
+          <img class="project-img" src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.projectpro.io%2Farticle%2Ftop-10-machine-learning-projects-for-beginners-in-2021%2F397&psig=AOvVaw1F4c1x5puy8EN8QNra5QE9&ust=1757432398684000&source=images&cd=vfe&opi=89978449&ved=0CBUQjRxqFwoTCODg6onAyY8DFQAAAAAdAAAAABAK.jpg" alt="Project 2">
+          <div class="project-content">
+            <div>
+              <div class="project-title">plant species identification app</div>
+              <div class="project-desc">It is a AI&ML project we can identify plants species.</div>
+            </div>
+            <a class="project-link" href="#" target="_blank">View Project</a>
+          </div>
+        </div>
+        <div class="project-card">
+          <img class="project-img" src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.stratascratch.com%2Fblog%2Freal-world-ai-projects-that-will-change-the-future%2F&psig=AOvVaw3UD_TxI7BW-TGRWu1aXB2w&ust=1757432866733000&source=images&cd=vfe&opi=89978449&ved=0CBUQjRxqFwoTCODM1v7ByY8DFQAAAAAdAAAAABAE.jpg" alt="Project 3">
+          <div class="project-content">
+            <div>
+              <div class="project-title">AI-Projects</div>
+              <div class="project-desc">Here we can identify the Real-world project by using advanced level AI projects.</div>
+            </div>
+            <a class="project-link" href="#" target="_blank">View Project</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="Address">
+      <h2 class="section-title">Contact</h2>
+      <form class="Address-section">
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <textarea placeholder="comments" required rows="5"></textarea>
+        <button type="submit">Submit</button>
+      </form>
+    </section>
+  </div>
+  <footer>
+    &copy; 2025 Megha Suvarchala. All rights reserved.
+  </footer>
+</body>
+</html>

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TO DO LIST</title>
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #0e0f0f;
+      margin: 0;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      color: #0e0d0d;
+      background-color: rgb(201, 212, 214);
+      padding: 10px;
+      border-radius: 5px;
+    }
+
+    h2 {
+      color: #151313; 
+      background-color: rgb(215, 224, 224);
+      padding: 8px;
+      border-radius: 5px;
+    }
+
+    #taskInput {
+      width: 300px;
+      padding: 10px;
+      margin-right: 10px;
+      border: 1px solid #131313;
+      border-radius: 4px;
+    }
+
+    #addTaskBtn {
+      padding: 10px 15px;
+      border: none;
+      background-color: #28a745;
+      color: white;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    #addTaskBtn:hover {
+      background-color: #218838;
+    }
+
+    #taskList {
+      list-style-type: none;
+      padding: 0;
+      margin-top: 20px;
+    }
+
+    #taskList li {
+      background: white;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: 0.3s;
+    }
+
+    /* Completed task text highlight */
+    .completed span {
+      font-weight: bold;
+      color: #ffeb3b; /* yellow text */
+      animation: textGlow 1s infinite alternate;
+    }
+
+    /* Text glow animation */
+    @keyframes textGlow {
+      from {
+        text-shadow: 0 0 5px #ffeb3b, 0 0 10px #ffeb3b;
+      }
+      to {
+        text-shadow: 0 0 20px #ffd700, 0 0 30px #ffd700;
+      }
+    }
+
+    .btn {
+      padding: 5px 10px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-left: 5px;
+    }
+
+    .completeBtn {
+      background-color: #2cd176;
+      color: white;
+    }
+
+    .completeBtn:hover {
+      background-color: #090a0b;
+    }
+
+    .deleteBtn {
+      background-color: #dc3545;
+      color: white;
+    }
+
+    .deleteBtn:hover {
+      background-color: #a71d2a;
+    }
+  </style>
+</head>
+<body>
+  <h1> Document Lists...</h1>
+  <br><br>
+  <h2>TO DO LIST</h2>
+  <input type="text" id="taskInput" placeholder="Enter a new task">
+  <button id="addTaskBtn">Add Task</button>
+  <ul id="taskList"></ul>
+
+  <script>
+    $(document).ready(function() {
+      // Add task on button click
+      $('#addTaskBtn').click(function() {
+        const task = $('#taskInput').val();
+        if (task) {
+          $('#taskList').append(
+            `<li>
+              <span>${task}</span>
+              <div>
+                <button class="btn completeBtn">Complete</button>
+                <button class="btn deleteBtn">Delete</button>
+              </div>
+            </li>`
+          );
+          $('#taskInput').val('');
+        }
+      });
+
+      // Add task when pressing Enter key
+      $('#taskInput').keypress(function(e) {
+        if (e.which === 13) {
+          $('#addTaskBtn').click();
+        }
+      });
+
+      // Mark as completed (highlight text)
+      $('#taskList').on('click', '.completeBtn', function() {
+        const li = $(this).closest('li');
+        li.addClass('completed'); // add glowing text effect
+        $(this).remove(); // remove complete button
+      });
+
+      // Delete task
+      $('#taskList').on('click', '.deleteBtn', function() {
+        $(this).closest('li').remove();
+      });
+    });
+  </script>
+</body>
+</html>
+
+
+
+

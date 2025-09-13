@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Course Registration</title>
+
+  <!-- 🔹 Font Awesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: "Poppins", sans-serif;
+      min-height: 100vh;
+
+      /* 🔹 Background Image */
+      background: url("https://t4.ftcdn.net/jpg/01/19/11/55/360_F_119115529_mEnw3lGpLdlDkfLgRcVSbFRuVl6sMDty.jpg")
+        no-repeat center center fixed;
+      background-size: cover;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* 🔹 Overlay (for readability) */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.5); /* dark overlay */
+      z-index: -1;
+    }
+
+    /* 🔹 Header */
+    header {
+      width: 100%;
+      background: rgba(0,0,0,0.85);
+      color: white;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-container img {
+      height: 45px;
+      width: 40px;
+      border-radius: 50%;
+      box-shadow: 0 0 8px #3b82f6, 0 0 15px #9333ea;
+    }
+
+
+
+    header h1 {
+      margin: 0;
+      font-size: 26px;
+      font-weight: 600;
+      text-shadow: 0 0 8px #60a5fa, 0 0 12px #3b82f6;
+    }
+
+    nav {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      position: relative;
+      text-shadow: 0 0 8px #232024;
+      transition: 0.3s;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 2px;
+      left: 0;
+      bottom: -4px;
+      background: #facc15;
+      transition: 0.3s;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    /* 🔹 Form Card */
+    .form-container {
+      background: #fff;
+      margin-top: 50px;
+      padding: 35px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+      max-width: 450px;
+      width: 90%;
+    }
+
+    .form-container h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #115794;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    label {
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
+
+    input, select {
+      padding: 10px;
+      border: 1px solid #1d1d1f;
+      border-radius: 8px;
+      font-size: 14px;
+      outline: none;
+      transition: 0.3s;
+    }
+
+    input:focus, select:focus {
+      border-color: #54209e;
+      box-shadow: 0 0 5px rgba(125, 29, 91, 0.4);
+    }
+
+    .gender-options {
+      display: flex;
+      gap: 15px;
+    }
+
+    .gender-options label {
+      font-weight: normal;
+    }
+
+    /* 🔹 Button */
+    button {
+      padding: 12px;
+      background: linear-gradient(to right, #3b82f6, #9333ea);
+      border: none;
+      border-radius: 8px;
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+    }
+
+    /* 🔹 Responsive */
+    @media (max-width: 500px) {
+      nav {
+        flex-direction: column;
+        gap: 10px;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="logo-container">
+      <!-- 🔹 Replace with your own logo -->
+      <img src="https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg" alt="Academy Logo">
+      <h1> My Academy</h1>
+    </div>
+    <nav>
+      <a href="#"><i class="fas fa-home"></i> Home</a>
+      <a href="#"><i class="fas fa-book"></i> Courses</a>
+      <a href="#"><i class="fas fa-envelope"></i> Contact</a>
+    </nav>
+  </header>
+
+  <!-- Form -->
+  <div class="form-container">
+    <h2>Register Now...</h2>
+    <form>
+      <div>
+        <label for="name">Full Name</label>
+        <input type="text" id="name" name="name" required>
+      </div>
+
+      <div>
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+
+      <div>
+         <label for="dob">Date of Birth:</label>
+        <input type="date" id="dob" name="dob" required>
+      </div>
+
+      <div>
+        <label for="course">Course Selection</label>
+        <select id="course" name="course" required>
+          <option value="">--Select--</option>
+          <option>AI&ML></option>
+          <option>Web Development</option>
+          <option>Data Science</option>
+          <option>Cybersecurity</option>
+        </select>
+      </div>
+
+      <div>
+        <label>Gender</label>
+        <div class="gender-options">
+          <label><input type="radio" name="gender" value="Male" required> Male</label>
+          <label><input type="radio" name="gender" value="Female"> Female</label>
+          <label><input type="radio" name="gender" value="Other"> Other</label>
+        </div>
+      </div>
+
+      
+      <div>
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required>
+      </div>
+
+      <div>
+        <label for="confirm">Confirm Password</label>
+        <input type="password" id="confirm" name="confirm" required>
+      </div>
+
+      <button type="submit">Register</button>
+    </form>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Registration Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #191a1b;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+    }
+
+    /* Flex container to hold form + image */
+    .container {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      background: rgba(231, 226, 229, 0.9);
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(45, 184, 239, 0.5);
+      border: 2px solid #2db8ef;
+      transition: 0.5s;
+    }
+
+    .container:hover {
+      box-shadow: 0 0 30px 5px rgba(45, 184, 239, 0.8);
+    }
+
+    .form-container {
+      width: 400px;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #05172c;
+    }
+
+    form {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 15px;
+      align-items: center;
+    }
+
+    label {
+      font-weight: bold;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    input[type="date"],
+    input[type="tel"],
+    select,
+    textarea {
+      padding: 8px 8px 8px 35px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      width: 100%;
+      box-sizing: border-box;
+      background-repeat: no-repeat;
+      background-size: 20px;
+      background-position: 8px center;
+    }
+
+    /* Input icons */
+    #name {
+      background-image: url("https://cdn-icons-png.flaticon.com/512/1077/1077012.png");
+    }
+    #email {
+      background-image: url("https://cdn-icons-png.flaticon.com/512/732/732200.png");
+    }
+    #dob {
+      background-image: url("https://cdn-icons-png.flaticon.com/512/747/747310.png");
+    }
+    #phone {
+      background-image: url("https://cdn-icons-png.flaticon.com/512/724/724664.png");
+    }
+    #skills {
+      background-image: url("https://cdn-icons-png.flaticon.com/512/3135/3135715.png");
+    }
+    #password {
+      background-image: url("https://cdn-icons-png.flaticon.com/512/3064/3064197.png");
+    }
+
+    .hobbies {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    button {
+      grid-column: span 2;
+      padding: 12px;
+      background: #2db8ef;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #01060b;
+      transform: scale(1.05);
+    }
+
+    /* Right-side image */
+    .form-image img {
+      max-width: 250px;
+      border-radius: 10px;
+    }
+
+    textarea {
+      resize: vertical;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- Left: Form -->
+    <div class="form-container">
+      <h2>Student Registration Form</h2>
+      <form>
+        <label for="name">Full Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="dob">Date of Birth:</label>
+        <input type="date" id="dob" name="dob" required>
+
+        <label for="phone">Phone No:</label>
+        <input type="tel" id="phone" name="phone" required pattern="[0-9]{10}" placeholder="Enter 10-digit number">
+
+        <label for="gender">Gender:</label>
+        <select id="gender" name="gender" required>
+          <option value="">--Select--</option>
+          <option>Male</option>
+          <option>Female</option>
+          <option>Other</option>
+        </select>
+
+        <label>Hobbies:</label>
+        <div class="hobbies">
+          <label><input type="checkbox" name="hobbies" value="Sports"> Sports</label>
+          <label><input type="checkbox" name="hobbies" value="Music"> Music</label>
+          <label><input type="checkbox" name="hobbies" value="Reading"> Reading</label>
+          <label><input type="checkbox" name="hobbies" value="Others"> Others</label>
+        </div>
+
+        <label for="skills">Skills:</label>
+        <input type="text" id="skills" name="skills" required>
+
+        <label for="address">Address:</label>
+        <textarea id="address" name="address" required></textarea>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+
+        <button type="submit">Register</button>
+      </form>
+    </div>
+
+    <!-- Right: Image -->
+    <div class="form-image">
+      <img src="https://img.freepik.com/free-vector/student-boy-with-reading-book-hands_25030-39048.jpg" alt="Student">
+    </div>
+  </div>
+
+</body>
+</html>
+
+
+
+
+
+
+
+

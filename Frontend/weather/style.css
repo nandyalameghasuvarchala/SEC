@@ -1,0 +1,39 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 20px;
+    background-color: #161313;
+}
+
+h1{
+    color: #333;
+}
+
+section {
+    background: rgb(184, 213, 226);
+    padding: 20px;
+    margin: 20px auto;
+    border-radius: 10px;
+    max-width: 400px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+input, button {
+    padding: 10px;
+    margin: 5px ;
+    font-size:16px;
+}
+
+button {
+    background :#2cbc22;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+button:hover {
+    background: #020c17;
+}
+ #weather {
+    margin-top: 20px;
+    font-size: 18px;
+ }

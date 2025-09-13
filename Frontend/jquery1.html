@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>weather app</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h2>Weather App</h2>
+    <input type="text" id="cityInput" placeholder="Enter city name">    
+    <button id="getWeatherBtn">Get Weather</button>
+    <div id="weatherResult"></div>
+
+    <script>
+        //prefined city -> coordinates
+        const cityCoordinates = {
+            "New York": { lat: 40.7128, lon: -74.0060 },
+            "London": { lat: 51.5074, lon: -0.1278 },
+            "Tokyo": { lat: 35.6895, lon: 139.6917 },
+            "Delhi": { lat: 28.7041, lon: 77.1025 }
+        };
+        $(document).ready(function() {
+            $('#getWeatherBtn').click(function() {
+                const city = $('#cityInput').val();
+                if (cityCoordinates[city]) {
+                    const { lat, lon } = cityCoordinates[city];
+                    const apiKey = 'YOUR_API_KEY'; // Replace with your OpenWeatherMap API key
+                    const apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
+
+                    $.ajax({
+                        url: apiUrl,
+                        method: 'GET',
+                        success: function(data) {
+                            const weatherInfo = `
+                                <h3>Weather in ${data.name}</h3>
+                                <p>Temperature: ${data.main.temp} °C</p>
+                                <p>Humidity: ${data.main.humidity}%</p>
+                                <p>Condition: ${data.weather[0].description}</p>
+                            `;
+                            $('#weatherResult').html(weatherInfo);
+                        },
+                        error: function() {
+                            $('#weatherResult').html('<p>Error retrieving weather data. Please try again later.</p>');
+                        }
+                    });
+                } else {
+                    $('#weatherResult').html('<p>City not found. Please enter a valid city name.</p>');
+                }
+            });
+        });
+    </script>
+    
+</body>
+</html>
